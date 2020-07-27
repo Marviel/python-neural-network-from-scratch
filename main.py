@@ -5,9 +5,16 @@ from math import exp
 
 class Neuron(object):
     def __init__(self, bias, weights, output=[]):
+        # Bias is a special weight that is on this neuron itself.
         self.bias = bias
+        # Weights are values corresponding to the strength of the edges
+        # From the previous layer's neurons to this one.
         self.weights = weights
+        # Output is the current output of this neuron.
         self.output = output
+        # Delta is the error calculated for this neuron during backpropagation.
+        self.delta = None
+    
 
     def __repr__(self):
         return f"Neuron({str(self.__dict__)})"
